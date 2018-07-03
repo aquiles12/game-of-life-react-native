@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { nextStep, togglePlay } from '../../actions/game'
+import { nextStep, togglePlay, setDefaultActiveBoard } from '../../actions/game'
 import Board from './component'
 
 const mapStateToProps = state => ({
@@ -11,6 +11,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   nextStep: bindActionCreators(nextStep, dispatch),
   togglePlay: bindActionCreators(togglePlay, dispatch),
+  setDefaultActiveBoard: bindActionCreators(setDefaultActiveBoard, dispatch),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Board)

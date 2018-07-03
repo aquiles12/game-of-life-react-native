@@ -42,3 +42,14 @@ export const getNextBoard = board => {
   }))
   return nextBoard
 }
+
+export const setDefaultActiveBoard = () => {
+  const nextBoard = generateEmptyBoard(50)
+  nextBoard[0][0] = 1
+  nextBoard[0][1] = 1
+  nextBoard[1][0] = 1
+  nextBoard[1][3] = 1
+  nextBoard[2][1] = 1
+  nextBoard[2][2] = 1
+  return nextBoard
+}

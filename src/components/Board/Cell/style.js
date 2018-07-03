@@ -2,9 +2,8 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   cell: {
-    margin: 1,
-    width: 25,
-    height: 25,
+    width: 7,
+    height: 7,
     backgroundColor: '#DDD',
   },
   alive: {

@@ -1,12 +1,18 @@
-import { TOGGLE_CELL, NEXT_STEP, TOGGLE_PLAY } from '../actions/game'
+import { 
+  TOGGLE_CELL, 
+  NEXT_STEP, 
+  TOGGLE_PLAY, 
+  DEFAULT_ACTIVE_BOARD, 
+} from '../actions/game'
 import {
   generateEmptyBoard,
   getNextBoard,
   toggleInBoard,
+  setDefaultActiveBoard,
 } from '../helpers/game-of-life'
 
 const initialState = {
-  board: generateEmptyBoard(10),
+  board: generateEmptyBoard(50),
   isPlaying: false,
 }
 
@@ -30,6 +36,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isPlaying: !state.isPlaying,
+      }
+
+    case DEFAULT_ACTIVE_BOARD: 
+      return {
+        ...state,
+        board: setDefaultActiveBoard(),
       }
 
     default:

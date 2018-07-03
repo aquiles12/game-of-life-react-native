@@ -16,28 +16,50 @@ class BoardComponent extends PureComponent {
 
   nextStepHandler = () => this.props.nextStep()
 
+  // move steps forward every 1000ms
   playGameHandler = () => {
     const { nextStep, togglePlay, isPlaying } = this.props
     if (!isPlaying) nextStep()
     togglePlay()
   }
 
-  // maps board cells to html cell components
-  renderCells = () => this.props.board.map(
-    (row, x) => row.map(
+  drawRow = (row, x) => (
+    row.map(
       (cell, y) => (
         <Cell key={`c${x}${y}`} x={x} y={y} value={cell} />
       )
     )
   )
 
+  // this will activate the 6 x,y asked in the challenge
+  activeDefaultCells = () => {
+    this.props.setDefaultActiveBoard()
+  }
+
+  // maps board cells to cell components
+  renderCells = () => this.props.board.map(
+    (row, x) => <View key={`r${x}`}>{this.drawRow(row, x)}</View>
+  )
+
   render = () => {
     const { isPlaying } = this.props
     return (
       <View>
+        <View style={styles.titleArea}>
+          <Text style={styles.title}>Conway's</Text>
+          <Text style={styles.title}>Game of Life</Text>
+        </View>
         <View style={styles.board}>
           {this.renderCells()}
         </View>
+        <TouchableHighlight
+          style={styles.button}
+          onPress={this.activeDefaultCells}
+        >
+          <Text style={styles.buttonText}>
+            Set Default Active Cells          
+          </Text>
+        </TouchableHighlight>
         <TouchableHighlight
           style={styles.button}
           onPress={this.nextStepHandler}

@@ -3,11 +3,9 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   board: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
     alignItems: 'center',
-    width: 300,
-    height: 300,
+    width: '95%',
     borderRadius: 4,
     borderWidth: 3,
     borderColor: '#999',
@@ -21,6 +19,15 @@ export default StyleSheet.create({
     borderColor: '#FFF',
   },
   buttonText: {
+    color: '#FFF',
+  },
+  titleArea: {
+    alignSelf: 'flex-start',
+    marginBottom: 20,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 20,
     color: '#FFF',
   }
 });
